@@ -108,7 +108,5 @@ int main()
 
     printf("mult[256][256] 计算次数:%d, 用时:%fs\n",i, (double)(end-start)/CLOCKS_PER_SEC);
 
-
-
     return 0;
 }

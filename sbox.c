@@ -49,11 +49,7 @@ int main()
     } 
     max10[10].n = 257;
     
-    for(ci=0; ci<256; ci++)
-        for(di=0; di<256; di++)
-            if(result[ci][di] != 0)
-                printf("result init error\n");
-    // 初始化 bit_xor
+   // 初始化 bit_xor
     for(a=0; a<256; a++){
         bit = 0x01;
         count = 0;
@@ -65,6 +61,7 @@ int main()
         bit_xor[a] = count % 2;
     }
 
+    // 线性分析
     for(a=0; a<256; a++){
         b = sbox[a];
         for(ci=0; ci<256; ci++){
@@ -77,6 +74,7 @@ int main()
         }
     }
 
+    // 找出前十个最大的线性相关
     max = 0;
     for(ci=1; ci<256; ci++){
         for(di=0; di<256; di++){
@@ -89,6 +87,7 @@ int main()
     }
 
 
+    // 输出结果
     for(ci=9; ci>=0; ci--){
         printf("i %2d ci %#x di %#x max %d diff %d\n",
                 10-ci, max10[ci].x, max10[ci].y, result[max10[ci].x][max10[ci].y], max10[ci].n);
