@@ -36,7 +36,6 @@ int main()
     short di=0x00;
     char c,d;
     short result[256][256] = {{0}};
-    int statistics[33] = {0};
     char bit_xor[256]; // n = bit_xor[a]; a = 0ba7 a6 a5 a4 a3 a2 a1 a0, n=a7^a6^a5^a4^a3^a2^a1^a0
     unsigned char bit=0x01;
     char count = 0;
@@ -78,7 +77,6 @@ int main()
     max = 0;
     for(ci=1; ci<256; ci++){
         for(di=0; di<256; di++){
-            statistics[result[ci][di]-112]++;
             tmp = abs(result[ci][di] - 128);
             if(tmp>max){
                 max = insert_max(tmp, ci, di);

@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include <time.h>
 #include "field28.h"
 
@@ -55,7 +54,7 @@ field28 inverse2(field28 a){
     else if(inv[a] != 0x00)
         return inv[a];
     else{
-        while(i){
+        while(1){
             if(multi(a,i)==0x01){
                 inv[a] = i;
                 inv[i] =a;
