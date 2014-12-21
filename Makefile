@@ -1,10 +1,12 @@
+FLAGS=-Ofast
+
 all: field28 sbox
 
 field28: field28.c field28.h
-	gcc -o field28 field28.c
+	gcc $(FLAGS) -o field28 field28.c
 
 sbox: sbox.c sbox.h
-	gcc -o sbox sbox.c
+	gcc $(FLAGS) -o sbox sbox.c
 
 .PHONY: clean
 clean:
