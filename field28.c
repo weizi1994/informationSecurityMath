@@ -74,14 +74,17 @@ int main()
 {
     int start, end;
     field28 a=0x57, b=0x00;
+    field28 randarr[100000];
     int i;
 
     srand(time(NULL));
-    a = (field28)rand();
+    for(i=0; i<100000; i++)
+        randarr[i] = (field28)rand();
 
     //multi2  函数计算
     start = clock();
-    for(i=0; i<100000000; i++){
+    for(i=0; i<100000; i++){
+        a = randarr[i];
         b = multi2(a,inverse(a));
     }
     printf("0x%hhx * 0x%hhx = 0x%hhx\n", a, inverse(a), b);
@@ -90,7 +93,8 @@ int main()
 
     //multi 函数查表
     start = clock();
-    for(i=0; i<100000000; i++){
+    for(i=0; i<100000; i++){
+        a = randarr[i];
         b = multi(a,inverse(a));
     }
     printf("0x%hhx * 0x%hhx = 0x%hhx\n", a, inverse(a), b);
@@ -99,7 +103,8 @@ int main()
 
     //mult 不调用函数，直接查表
     start = clock();
-    for(i=0; i<100000000; i++){
+    for(i=0; i<100000; i++){
+        a = randarr[i];
         b = mult[a][inve[a]];
     }
     printf("0x%hhx * 0x%hhx = 0x%hhx\n", a, inverse(a), b);
